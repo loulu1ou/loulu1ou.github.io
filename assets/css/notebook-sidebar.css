@@ -1,0 +1,72 @@
+/* --- Notebook Sidebar --- */
+
+.notebook-sidebar-wrapper {
+  margin-bottom: 2rem;
+}
+
+.notebook-sidebar {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+.notebook-sidebar-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--link-col, #008AFF);
+}
+
+.notebook-title {
+  font-family: var(--header-font, 'Open Sans', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-col, #404040);
+  text-decoration: none;
+}
+
+.notebook-title:hover {
+  color: var(--link-col, #008AFF);
+  text-decoration: none;
+}
+
+.notebook-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notebook-nav-item {
+  margin-bottom: 0.25rem;
+}
+
+.notebook-nav-item a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  color: var(--text-col, #404040);
+  font-family: var(--header-font, 'Open Sans', sans-serif);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.notebook-nav-item a:hover {
+  background-color: #e9ecef;
+  color: var(--link-col, #008AFF);
+  text-decoration: none;
+}
+
+.notebook-nav-item.active a {
+  background-color: var(--link-col, #008AFF);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Sticky sidebar on larger screens */
+@media (min-width: 992px) {
+  .notebook-sidebar {
+    position: sticky;
+    top: 1.5rem;
+  }
+}

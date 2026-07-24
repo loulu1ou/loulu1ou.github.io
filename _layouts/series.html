@@ -1,0 +1,49 @@
+---
+layout: base
+---
+
+{% include header.html type="page" %}
+
+<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-lg-3 col-md-4 notebook-sidebar-wrapper">
+      <nav class="notebook-sidebar">
+        <div class="notebook-sidebar-header">
+          <a href="{{ page.collection | prepend: '/' | append: '/' | relative_url }}" class="notebook-title">{{ page.series_title }}</a>
+        </div>
+        <ul class="notebook-nav">
+          {% assign series_pages = site[page.collection] | sort: 'order' %}
+          {% for item in series_pages %}
+            <li class="notebook-nav-item{% if page.url == item.url %} active{% endif %}">
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="{% if page.full-width %} col {% else %} col-lg-9 col-md-8 {% endif %}">
+      {% if page.before-content %}
+        <div class="before-content">
+          {% for file in page.before-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {{ content }}
+
+      {% if page.after-content %}
+        <div class="after-content">
+          {% for file in page.after-content %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% include comments.html %}
+    </div>
+  </div>
+</main>

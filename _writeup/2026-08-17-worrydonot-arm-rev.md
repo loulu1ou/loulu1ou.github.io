@@ -10,6 +10,7 @@ This is for beginners and serves as my personal notes. Feel free to comment if I
 ## Let's start!
 To start the reversing, I ask myself, what does the program do?
 ![wd-1](/assets/img/posts/worrydonot-image-1.png)
+
 ![wd-2](/assets/img/posts/worrydonot-image-2.png)
 
 So, our target is to input the correct password.

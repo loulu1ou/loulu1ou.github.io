@@ -296,9 +296,9 @@ exclude:
   - docs/
 
 collections:
-  notebook:
-    output: true
-    permalink: /notebook/:name/
+  # notebook:
+  #   output: true
+  #   permalink: /notebook/:name/
   til:
     output: true
     permalink: /til/:name/

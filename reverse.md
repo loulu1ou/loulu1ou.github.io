@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Writeups
+title: Reverse
 ---
 
 A collection of CTF writeups, challenge walkthroughs, and vulnerability analyses.
 
-## Writeups
+## Reverse
 
-{% assign sorted_writeup = site.writeup | sort: 'order' %}
-{% for item in sorted_writeup %}
+{% assign sorted_reverse = site.reverse | sort: 'order' %}
+{% for item in sorted_reverse %}
 - [{{ item.title }}]({{ item.url | relative_url }})
 {% endfor %}

@@ -22,7 +22,7 @@ author: loulu1ou
 navbar-links:
   About Me: "aboutme"
   Today I Learned: "til"
-  Writeups: "writeup"
+  Reverse: "reverse"
 
 ################
 # --- Logo --- #
@@ -298,9 +298,9 @@ collections:
   til:
     output: true
     permalink: /til/:name/
-  writeup:
+  reverse:
     output: true
-    permalink: /writeup/:name/
+    permalink: /reverse/:name/
 
 plugins:
   - jekyll-paginate

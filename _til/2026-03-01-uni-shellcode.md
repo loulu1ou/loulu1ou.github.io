@@ -1,6 +1,7 @@
 ---
 layout: series
 title: The Universal Shellcode Execution Pattern
+category: Red Team
 order: 1
 series_title: Today I Learned
 ---

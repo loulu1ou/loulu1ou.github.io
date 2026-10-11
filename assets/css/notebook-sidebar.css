@@ -63,6 +63,58 @@
   font-weight: 600;
 }
 
+/* --- Collapsible categories (GitBook style) --- */
+
+.notebook-category {
+  margin-bottom: 0.25rem;
+}
+
+.notebook-category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: var(--header-font, 'Open Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-col, #404040);
+  list-style: none;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+.notebook-category-title::-webkit-details-marker {
+  display: none;
+}
+
+.notebook-category-title::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+.notebook-category[open] > .notebook-category-title::before {
+  transform: rotate(45deg);
+}
+
+.notebook-category-title:hover {
+  background-color: #e9ecef;
+  color: var(--link-col, #008AFF);
+}
+
+.notebook-category .notebook-nav {
+  margin-left: 1.05rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid #dee2e6;
+}
+
 /* Sticky sidebar on larger screens */
 @media (min-width: 992px) {
   .notebook-sidebar {

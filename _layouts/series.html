@@ -12,14 +12,40 @@ layout: base
         <div class="notebook-sidebar-header">
           <a href="{{ page.collection | prepend: '/' | append: '/' | relative_url }}" class="notebook-title">{{ page.series_title }}</a>
         </div>
-        <ul class="notebook-nav">
-          {% assign series_pages = site[page.collection] | sort: 'order' %}
-          {% for item in series_pages %}
-            <li class="notebook-nav-item{% if page.url == item.url %} active{% endif %}">
-              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
+        {% assign series_pages = site[page.collection] | sort: 'order' %}
+
+        {%- comment -%} Collect the unique categories (posts without one fall under "General") {%- endcomment -%}
+        {% assign categories = '' | split: '' %}
+        {% for item in series_pages %}
+          {% assign item_cat = item.category | default: 'General' %}
+          {% unless categories contains item_cat %}
+            {% assign categories = categories | push: item_cat %}
+          {% endunless %}
+        {% endfor %}
+        {% assign categories = categories | sort %}
+
+        {% for cat in categories %}
+          {%- assign cat_active = false -%}
+          {%- for item in series_pages -%}
+            {%- assign item_cat = item.category | default: 'General' -%}
+            {%- if item_cat == cat and item.url == page.url -%}
+              {%- assign cat_active = true -%}
+            {%- endif -%}
+          {%- endfor -%}
+          <details class="notebook-category"{% if cat_active %} open{% endif %}>
+            <summary class="notebook-category-title">{{ cat }}</summary>
+            <ul class="notebook-nav">
+              {%- for item in series_pages -%}
+                {%- assign item_cat = item.category | default: 'General' -%}
+                {%- if item_cat == cat %}
+                <li class="notebook-nav-item{% if page.url == item.url %} active{% endif %}">
+                  <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </details>
+        {% endfor %}
       </nav>
     </div>
 

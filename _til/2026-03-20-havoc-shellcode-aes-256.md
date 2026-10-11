@@ -1,6 +1,7 @@
 ---
 layout: series
 title: Encrypting Havoc C2 Shellcode with AES-256
+category: Red Team
 order: 2
 series_title: Today I Learned
 ---

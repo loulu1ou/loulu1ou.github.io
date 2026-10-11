@@ -1,6 +1,7 @@
 ---
 layout: series
 title: Compile Rust for Windows using Mac
+category: Misc
 order: 4
 series_title: Today I Learned
 ---

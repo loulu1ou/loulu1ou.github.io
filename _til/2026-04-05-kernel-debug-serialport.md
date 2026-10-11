@@ -1,6 +1,7 @@
 ---
 layout: series
 title: Kernel Debugging With Serial Port - Proxmox
+category: Windows Internals
 order: 3
 series_title: Today I Learned
 ---

@@ -4,9 +4,9 @@ title: About me
 subtitle: 
 ---
 
-Hi, I'm Louise — a penetration tester and red teamer with a background in offensive security.
+Hi, I'm Louise — a penetration tester and red teamer.
 
-I'm interested in Offensive Security, AI Agents, and Detection Engineering. My work explores how AI-assisted workflows and custom automation can improve security research, from reconnaissance and vulnerability discovery to triage and analysis.
+I'm interested in Offensive Security, build something~ My work explores how AI-assisted workflows and custom automation can improve security research, from reconnaissance and vulnerability discovery to triage and analysis.
 
 I'm currently expanding my research into the defensive side of security, on attack telemetry, threat hunting, and malware analysis. I enjoy understanding not only how an attack works, but also what traces it leaves behind and how defenders can identify and investigate it.
 

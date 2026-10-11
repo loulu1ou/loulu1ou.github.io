@@ -123,6 +123,77 @@
   }
 }
 
+/* --- TIL category filtering (no JS) ---
+   /til/ shows a category index; /til/#<category> shows only that category's posts */
+
+.til-entries {
+  margin-top: 1.5rem;
+}
+
+.til-category {
+  margin-bottom: 1.25rem;
+}
+
+.til-category-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.til-category-link {
+  color: var(--text-col, #404040);
+  text-decoration: none;
+}
+
+.til-category-link:hover {
+  color: var(--link-col, #008AFF);
+  text-decoration: none;
+}
+
+.til-category-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6c757d;
+  background: #e9ecef;
+  border-radius: 0.75rem;
+  padding: 0.1rem 0.55rem;
+  vertical-align: middle;
+}
+
+/* posts list: hidden until the category is targeted via the URL hash */
+.til-posts {
+  display: none;
+  margin-top: 0.75rem;
+}
+
+.til-category:target .til-posts {
+  display: block;
+}
+
+/* "back to all categories" link: only visible on the targeted category */
+.til-back {
+  display: none;
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+.til-category:target .til-back {
+  display: inline;
+}
+
+/* when a category is targeted, hide all the others */
+.til-entries:has(.til-category:target) .til-category:not(:target) {
+  display: none;
+}
+
+/* highlight the targeted category heading */
+.til-category:target .til-category-link {
+  color: var(--link-col, #008AFF);
+}
+
 /* Sticky sidebar on larger screens */
 @media (min-width: 992px) {
   .notebook-sidebar {

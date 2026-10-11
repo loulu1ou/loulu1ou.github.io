@@ -115,6 +115,14 @@
   border-left: 1px solid #dee2e6;
 }
 
+/* --- Navbar dropdown: open on hover (desktop only, mobile keeps click-to-open) --- */
+
+@media (min-width: 1200px) {
+  .navbar-custom .nav-item.dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
 /* Sticky sidebar on larger screens */
 @media (min-width: 992px) {
   .notebook-sidebar {

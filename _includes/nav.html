@@ -24,6 +24,28 @@
               {%- endfor %}
             </div>
           </li>
+        {%- elsif link[1] contains '-dynamic-dropdown' -%}
+          {%- assign coll_name = link[1] | remove: '-dynamic-dropdown' -%}
+          {%- if site[coll_name] -%}
+            {%- assign coll_url = coll_name | prepend: '/' | append: '/' | relative_url -%}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{{ coll_url }}" id="navbarDropdown-{{ coll_name }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link[0] }}</a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown-{{ coll_name }}">
+                <a class="dropdown-item" href="{{ coll_url }}">All Entries</a>
+                {%- assign categories = '' | split: '' -%}
+                {%- for item in site[coll_name] -%}
+                  {%- assign item_cat = item.category | default: 'General' -%}
+                  {%- unless categories contains item_cat -%}
+                    {%- assign categories = categories | push: item_cat -%}
+                  {%- endunless -%}
+                {%- endfor -%}
+                {%- assign categories = categories | sort -%}
+                {%- for cat in categories %}
+                <a class="dropdown-item" href="{{ coll_url }}#{{ cat | slugify }}">{{ cat }}</a>
+                {%- endfor %}
+              </div>
+            </li>
+          {%- endif -%}
         {% else %}
           <li class="nav-item">
             <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
